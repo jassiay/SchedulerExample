@@ -6,7 +6,7 @@ import TermSelector from './TermSelector'
 import CourseSelector from './CourseSelector'
 import {getCourseTerm} from '../utils/course'
 
-const CourseList = ({courses}) => {
+const CourseList = ({courses, view}) => {
     const [selectedTerm, setSelectedTerm] = useState('Spring');
 
     const termCourses = courses.filter(course=>selectedTerm === getCourseTerm(course));
@@ -14,7 +14,7 @@ const CourseList = ({courses}) => {
     return (
     <ScrollView>
         <TermSelector selectedTerm={selectedTerm} setSelectedTerm={setSelectedTerm} />
-        <CourseSelector courses={termCourses} />
+        <CourseSelector courses={termCourses} view={view}/>
     </ScrollView>
     );
 };
